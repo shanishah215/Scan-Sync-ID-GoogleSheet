@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-
-import 'options.dart';
+import 'package:get/get.dart';
+import 'core/dependency_injection.dart';
+import 'presentation/features/ocr/pages/ocr_page.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  DependencyInjection.init();
   runApp(const MyApp());
 }
 
@@ -11,14 +14,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ML DEMO',
-      debugShowCheckedModeBanner: false,
+    return GetMaterialApp(
+      title: 'Aadhaar Sync',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueAccent),
         useMaterial3: true,
       ),
-      home: const MLOptions(),
+      home: const OcrPage(),
     );
   }
 }
